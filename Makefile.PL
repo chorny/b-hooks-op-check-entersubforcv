@@ -9,12 +9,16 @@ all_from 'lib/B/Hooks/OP/Check/EntersubForCV.pm';
 
 requires 'parent';
 requires 'Scalar::Util';
-requires 'B::Utils';
-requires 'B::Hooks::OP::Check' => '0.11';
-build_requires 'B::Utils';
-build_requires 'B::Hooks::OP::Check' => '0.11';
-configure_requires 'B::Utils';
-configure_requires 'ExtUtils::Depends';
+requires 'B::Utils' => 0.08;
+requires 'B::Hooks::OP::Check' => '0.18';
+build_requires 'B::Utils' => 0.08;
+build_requires 'B::Hooks::OP::Check' => '0.18';
+configure_requires 'ExtUtils::Depends' => '0.302'; #minimum version that works on Win32+gcc
+configure_requires 'B::Utils' => 0.08;
+#minimum version that depends on ExtUtils::Depends 0.302
+configure_requires 'B::Hooks::OP::Check' => '0.18';
+#minimum version that depends on ExtUtils::Depends 0.302
+
 
 my $pkg = ExtUtils::Depends->new('B::Hooks::OP::Check::EntersubForCV', 'B::Hooks::OP::Check', 'B::Utils');
 $pkg->install('hook_op_check_entersubforcv.h');
