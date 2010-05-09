@@ -28,6 +28,8 @@ makemaker_args(
     dist => { PREOP => 'pod2text lib/B/Hooks/OP/Check/EntersubForCV.pm > README' },
 );
 
+repository 'http://github.com/rafl/b-hooks-op-check-entersubforcv.git';
+
 extra_tests;
 
 WriteAll;
